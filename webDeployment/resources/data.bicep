@@ -136,8 +136,8 @@ resource sqlServer 'Microsoft.Sql/servers@2019-06-01-preview' = {
     }
   }
 
-  resource sqlServer_firewallRules 'firewallRules@2020-08-01-preview' = [for (item, i) in whitelistedIPs: {
-    name: '${item.name} - ${i}'
+  resource sqlServer_firewallRules 'firewallRules@2020-08-01-preview' = [for (item, index) in whitelistedIPs: {
+    name: '${item.name} - ${index}'
     properties: {
       startIpAddress: item.host
       endIpAddress: item.host

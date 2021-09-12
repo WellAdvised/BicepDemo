@@ -1,6 +1,7 @@
 param projectName string
 param subnet string
 param workspace string
+param auditWorkspace string
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
@@ -158,7 +159,7 @@ resource microsoft_insights_components_websitename 'microsoft.insights/component
 }
 
 resource appServiceLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
-  name: 'appServiceLogs'
+  name: 'AppServiceHTTPLogs'
   scope: website
   properties: {
     logs: [
@@ -166,12 +167,21 @@ resource appServiceLogs 'microsoft.insights/diagnosticSettings@2017-05-01-previe
         category: 'AppServiceHTTPLogs'
         enabled: true
       }
+    ]
+    workspaceId: workspace
+  }
+}
+resource appServiceAuditLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
+  name: 'AppServiceAuditLogs'
+  scope: website
+  properties: {
+    logs: [
       {
         category: 'AppServiceAuditLogs'
         enabled: true
       }
     ]
-    workspaceId: workspace
+    workspaceId: auditWorkspace
   }
 }
 resource appServiceDevLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
@@ -183,12 +193,21 @@ resource appServiceDevLogs 'microsoft.insights/diagnosticSettings@2017-05-01-pre
         category: 'AppServiceHTTPLogs'
         enabled: true
       }
+    ]
+    workspaceId: workspace
+  }
+}
+resource appServiceDevAuditLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
+  name: 'AppServiceDevAuditLogs'
+  scope: website
+  properties: {
+    logs: [
       {
         category: 'AppServiceAuditLogs'
         enabled: true
       }
     ]
-    workspaceId: workspace
+    workspaceId: auditWorkspace
   }
 }
 resource appServiceStagingLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
@@ -200,12 +219,21 @@ resource appServiceStagingLogs 'microsoft.insights/diagnosticSettings@2017-05-01
         category: 'AppServiceHTTPLogs'
         enabled: true
       }
+    ]
+    workspaceId: workspace
+  }
+}
+resource appServiceStagingAuditLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
+  name: 'AppServiceStagingAuditLogs'
+  scope: website
+  properties: {
+    logs: [
       {
         category: 'AppServiceAuditLogs'
         enabled: true
       }
     ]
-    workspaceId: workspace
+    workspaceId: auditWorkspace
   }
 }
 

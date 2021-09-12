@@ -136,6 +136,7 @@ module appService 'appService.bicep' = {
     whitelistedIPs: whitelistedIPs
     subnet: appServiceSubnet.id
     workspace: httpRequestLogAnalyticsWorkspace.id
+    auditWorkspace: auditLogWorkspace.id
   }
 }
 

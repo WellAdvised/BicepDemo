@@ -1,8 +1,12 @@
 ﻿# Azure Infrastructure as Code
 
+# Or an Az Ad grp object id
+$sqlAdminsObjectId = (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+
 New-AzSubscriptionDeployment `
   -Name 'WellAdvised-WebDeployment' `
   -Location $location `
   -TemplateFile '.\webDeployment\main.bicep' `
   -projectName $ProjectName `
-  -cloudSecurityGroupObjectId $sqlAdminsObjectId
+  -cloudSecurityGroupObjectId $sqlAdminsObjectId `
+  -Confirm

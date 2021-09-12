@@ -23,6 +23,8 @@ resource keyVault 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
       ]
     }
     enableRbacAuthorization: true
+    // For demo
+    enableSoftDelete: false
   }
 }
 
@@ -49,6 +51,8 @@ resource keyVaultStaging 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
       ]
     }
     enableRbacAuthorization: true
+    // For demo
+    enableSoftDelete: false
   }
 }
 resource keyVaultDev 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
@@ -74,6 +78,8 @@ resource keyVaultDev 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
       ]
     }
     enableRbacAuthorization: true
+    // For demo
+    enableSoftDelete: false
   }
 }
 

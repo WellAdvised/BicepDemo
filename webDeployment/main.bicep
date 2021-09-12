@@ -15,7 +15,7 @@ param rgName string = '${projectName}-rg'
 
 @description('VNet address prefix.')
 param addressPrefix string = '172.28.29.0/24'
-param storageAccountName string = toLower('${projectName}-web')
+param storageAccountName string = toLower('${projectName}web')
 param keyVaultName string = '${projectName}-web'
 
 @description('Array of single ip address hosts allowed to access firewalled resources')
