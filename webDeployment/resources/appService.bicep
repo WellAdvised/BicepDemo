@@ -199,7 +199,7 @@ resource appServiceDevLogs 'microsoft.insights/diagnosticSettings@2017-05-01-pre
 }
 resource appServiceDevAuditLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
   name: 'AppServiceDevAuditLogs'
-  scope: website
+  scope: websiteDev
   properties: {
     logs: [
       {
@@ -225,7 +225,7 @@ resource appServiceStagingLogs 'microsoft.insights/diagnosticSettings@2017-05-01
 }
 resource appServiceStagingAuditLogs 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
   name: 'AppServiceStagingAuditLogs'
-  scope: website
+  scope: websiteStaging
   properties: {
     logs: [
       {
