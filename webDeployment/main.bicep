@@ -50,7 +50,7 @@ resource rgOps 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   properties: {}
 }
 
-module waWebRg './resources/mainRg.bicep' = {
+module waWebRg './mainRg.bicep' = {
   name: 'WellAdvised-WebDeployment-ResourceGroup'
   scope: rgOps
   params: {

@@ -105,7 +105,7 @@ resource appServiceSubnet 'Microsoft.Network/virtualNetworks/subnets@2020-11-01'
   }
 }
 
-module data 'data.bicep' = {
+module data './resources/data.bicep' = {
   name: 'WellAdvised-ResourceGroup-DataDeployment'
   scope: resourceGroup(rgData)
   params: {
@@ -118,7 +118,7 @@ module data 'data.bicep' = {
   }
 }
 
-module keyVaults 'keyVaults.bicep' = {
+module keyVaults './resources/keyVaults.bicep' = {
   name: 'WellAdvised-ResourceGroup-KeyVaultDeployment'
   params: {
     keyVaultName: keyVaultName
@@ -128,7 +128,7 @@ module keyVaults 'keyVaults.bicep' = {
   }
 }
 
-module appService 'appService.bicep' = {
+module appService './resources/appService.bicep' = {
   name: 'WellAdvised-ResourceGroup-WebDeployment'
   scope: resourceGroup(rgWeb)
   params: {
