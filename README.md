@@ -1,6 +1,8 @@
-﻿# Azure Infrastructure as Code
+# Azure Infrastructure as Code
 
-# Or an Az Ad grp object id
+# How to run
+
+Grab your users object id
 $sqlAdminsObjectId = (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
 
 New-AzSubscriptionDeployment `
